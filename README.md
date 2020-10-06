@@ -17,3 +17,5 @@
     una visión de lo que se encuentra haciendo a través del tablero de juego, por lo que necesitará una instancia 
     y una única instancia de la misma
 </p>
+<h4>Singleton</h4>
+<img src="singleton.png" alt="Aplicacion Singleton">

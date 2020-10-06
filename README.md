@@ -19,3 +19,6 @@
 </p>
 <h4>Singleton</h4>
 <img src="singleton.png" alt="Aplicacion Singleton">
+<p>De esta manera vemos entonces como el patron singleton soluciona el inconveniente de instanciar 
+    por unica vez la clase Camara, por que esta se usará una única vez dentro de el desarrollo del juego
+</p>

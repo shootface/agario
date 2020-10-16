@@ -22,3 +22,14 @@
 <p>De esta manera vemos entonces como el patron singleton soluciona el inconveniente de instanciar 
     por unica vez la clase Camara, por que esta se usará una única vez dentro de el desarrollo del juego
 </p>
+<h4>Prototype</h4>
+
+```python
+    def spawn_cells(self, cell,numOfCells):
+        localCell = cell
+        localCell.inicializar()
+        for i in range(numOfCells):
+            self.cell_list.append(localCell)
+            localCell = copy.deepcopy(localCell)
+            localCell.inicializar()
+```

@@ -29,7 +29,7 @@
     en el tablero de juego con el fin de que todos tengan caracteristicas similares y por su puesto actuen con las funcionalidades
     comunes  
 </p>
-```python
+<code>
     def spawn_cells(self, cell,numOfCells):
         localCell = cell
         localCell.inicializar()
@@ -37,5 +37,5 @@
             self.cell_list.append(localCell)
             localCell = copy.deepcopy(localCell)
             localCell.inicializar()
-```
+</code>
 

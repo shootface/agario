@@ -29,15 +29,8 @@
     en el tablero de juego con el fin de que todos tengan caracteristicas similares y por su puesto actuen con las funcionalidades
     comunes  
 </p>
-<code>
-    def spawn_cells(self, cell,numOfCells):
-</code>
-<br/>
-<code>
-    localCell = cell
-</code>
-
-        
+        def spawn_cells(self, cell,numOfCells):
+        localCell = cell
         localCell.inicializar()
         for i in range(numOfCells):
             self.cell_list.append(localCell)

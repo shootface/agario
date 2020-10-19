@@ -30,7 +30,7 @@
     comunes  
 </p>
 <code>
-    def spawn_cells(self, cell,numOfCells):<br>
+    def spawn_cells(self, cell,numOfCells):<br/>
         localCell = cell
         localCell.inicializar()
         for i in range(numOfCells):

@@ -30,12 +30,17 @@
     comunes  
 </p>
 <code>
-    def spawn_cells(self, cell,numOfCells):<br />
-        localCell = cell
+    def spawn_cells(self, cell,numOfCells):
+</code>
+<br/>
+<code>
+    localCell = cell
+</code>
+
+        
         localCell.inicializar()
         for i in range(numOfCells):
             self.cell_list.append(localCell)
             localCell = copy.deepcopy(localCell)
             localCell.inicializar()
-</code>
 

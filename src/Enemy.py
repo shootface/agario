@@ -7,8 +7,8 @@ class Enemy(GameElement):
     def __init__(self,surface,screen_w,screen_h,name = ""):
         colors_players = [(37,7,255),(35,183,253),(48,254,241),(19,79,251),(255,7,230),(255,7,23),(6,254,13)]
         print("PLAYER")
-        self.startX = self.x = self.cell_f_x = random.randint(100,400)
-        self.startY = self.y = self.cell_f_y =random.randint(100,400)
+        self.startX = self.x = self.cell_f_x =  random.randint(100,400)
+        self.startY = self.y = self.cell_f_y = random.randint(100,400)
         self.mass = 20
         self.surface = surface
         self.color = colors_players[random.randint(0,len(colors_players)-1)]
@@ -33,7 +33,9 @@ class Enemy(GameElement):
 
     def move(self,cell_list,enemy_list):
         r_cell = random.choice(cell_list)
-        dX,dY = (r_cell.x,r_cell.y)
+        self.cell_f_x = random.randint(-800,800)
+        self.cell_f_y =random.randint(-500,500)
+        dX,dY = (self.cell_f_x,self.cell_f_y)
         print(dX,dY)
         rotation = math.atan2(dY-(float(self.screen_height)/2),dX-(float(self.screen_width)/2))*180/math.pi
         speed = 5-1

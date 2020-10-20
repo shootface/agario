@@ -9,7 +9,7 @@ class Cell:
         self.x = random.randint(20,1980)
         self.y = random.randint(20,1980)
         self.color = Cell.colors_cells[random.randint(0,len(Cell.colors_cells)-1)]
-        print("CELL")
+        #print("CELL")
 
     def draw(self,cam,surface):
         pygame.draw.circle(surface,self.color,(int((self.x*cam.zoom+cam.x)),int(self.y*cam.zoom+cam.y)),int(self.mass*cam.zoom))

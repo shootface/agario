@@ -1,14 +1,14 @@
-import pygame,random,math
+import pygame,random,math, random
 from src.element import GameElement
 #from src.Piece import Piece
 
-class Player(GameElement):
-
+class Enemy(GameElement):
+    
     def __init__(self,surface,screen_w,screen_h,name = ""):
         colors_players = [(37,7,255),(35,183,253),(48,254,241),(19,79,251),(255,7,230),(255,7,23),(6,254,13)]
         print("PLAYER")
-        self.startX = self.x = random.randint(100,400)
-        self.startY = self.y = random.randint(100,400)
+        self.startX = self.x = self.cell_f_x = random.randint(100,400)
+        self.startY = self.y = self.cell_f_y =random.randint(100,400)
         self.mass = 20
         self.surface = surface
         self.color = colors_players[random.randint(0,len(colors_players)-1)]
@@ -21,7 +21,7 @@ class Player(GameElement):
         
 
     def update(self,cell_list,enemy_list):
-        self.move()
+        self.move(cell_list,enemy_list)
         self.collisionDetection(cell_list)
         self.enemyDetection(enemy_list)
 
@@ -31,8 +31,10 @@ class Player(GameElement):
                 self.mass+=0.5
                 cell_list.remove(cell)
 
-    def move(self):
-        dX,dY = pygame.mouse.get_pos()
+    def move(self,cell_list,enemy_list):
+        r_cell = random.choice(cell_list)
+        dX,dY = (r_cell.x,r_cell.y)
+        print(dX,dY)
         rotation = math.atan2(dY-(float(self.screen_height)/2),dX-(float(self.screen_width)/2))*180/math.pi
         speed = 5-1
         vx = speed * (90-math.fabs(rotation))/90
@@ -70,7 +72,7 @@ class Player(GameElement):
     
     def drawText(self,message,pos,color=(255,255,255)):
         self.surface.blit(self.font.render(message,1,color),pos)
-    
+
     def enemyDetection(self,player_list):
         for enemy in player_list:
             if(enemy.x!=self.x and enemy.y != self.y):

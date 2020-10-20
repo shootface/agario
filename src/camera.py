@@ -5,7 +5,7 @@ class Camera:
         self.y = 0
         self.width = screen_width
         self.height = screen_height
-        self.zoom = 0.5
+        self.zoom = 200
         self.p = player
 
     def centre(self, blobOrPos):

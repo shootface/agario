@@ -3,17 +3,28 @@ import random
 import math
 import copy
 from src.Player import Player
+from src.Enemy import Enemy
 from src.camera import Camera
 from src.Cell import Cell
+from src.Iterator import iteradorGE
 
 
 class Game:
 
     screen_width, screen_height = (800, 500)
+    instance = None
+
+    #Singleton
+    @staticmethod
+    def getGame():
+        if Game.instance is None:
+            Game.instance = Game()
+        return Game.instance
 
     def __init__(self):
         self.initScreen()
         self.initPlayer()
+        self.initEnemys()
         self.initFood()
         self.run()
 
@@ -29,6 +40,8 @@ class Game:
         self.t_lb_surface.fill((50, 50, 50, 80))
         pygame.display.set_caption("Agar.io")
         self.cell_list = list()
+        self.player_list = list()
+        self.player_colec = iter
         self.clock = pygame.time.Clock()
         self.font = pygame.font.SysFont('Ubuntu', 20, True)
         self.big_font = pygame.font.SysFont('Ubuntu', 24, True)
@@ -36,10 +49,16 @@ class Game:
     def initPlayer(self):
         self.blob = Player(self.surface, Game.screen_width,
                            Game.screen_height, "Viliami")
-        self.blob1 = Player(self.surface, Game.screen_width,
-                            Game.screen_height, "test")
+        self.player_list.append(self.blob)
         self.camera = Camera(Game.screen_width, Game.screen_height, self.blob)
 
+    def initEnemys(self):
+        blob1 = Enemy(self.surface, Game.screen_width,
+                           Game.screen_height, "test")
+        blob2 = Enemy(self.surface, Game.screen_width,
+                           Game.screen_height, "test")
+        self.player_list.append(blob1)
+        self.player_list.append(blob2)
     def initFood(self):
         cell = Cell()
         self.spawn_cells(cell,2000)
@@ -106,14 +125,16 @@ class Game:
                 if(e.type == pygame.QUIT):
                     pygame.quit()
                     quit()
-            self.blob.update(self.cell_list)
-            self.camera.zoom = 100/(self.blob.mass)+0.3
+            #self.blob.update(self.cell_list)
+            self.camera.zoom = 10/(self.blob.mass)+0.3
             self.camera.centre(self.blob)
             self.surface.fill((242, 251, 255))
             # surface.fill((0,0,0))
             self.draw_grid()
             for c in self.cell_list:
                 c.draw(self.camera,self.surface)
-            self.blob.draw(self.camera)
-            self.draw_HUD()
+            for player in self.player_list:
+                player.draw(self.camera)
+                player.update(self.cell_list,self.player_list)
+            #self.draw_HUD()
             pygame.display.flip()

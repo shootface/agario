@@ -23,13 +23,20 @@
     por unica vez la clase Camara, por que esta se usará una única vez dentro de el desarrollo del juego
 </p>
 <h4>Prototype</h4>
-
-```python
+<p>
+    Como hemos explorado en las diferentes clases, hemos encontrado que el patron prototipo nos permite crear nuevos objetos
+    clonandolos de una instancia creada con anterioridad para lo que entonces clonamos los diferentes puntos ubicados 
+    en el tablero de juego con el fin de que todos tengan caracteristicas similares y por su puesto actuen con las funcionalidades
+    comunes  
+</p>
+<code>
     def spawn_cells(self, cell,numOfCells):
-        localCell = cell
+    localCell = cell
+    localCell.inicializar()
+    for i in range(numOfCells):
+        self.cell_list.append(localCell)
+        localCell = copy.deepcopy(localCell)
         localCell.inicializar()
-        for i in range(numOfCells):
-            self.cell_list.append(localCell)
-            localCell = copy.deepcopy(localCell)
-            localCell.inicializar()
-```
+</code>
+        
+

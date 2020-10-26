@@ -56,5 +56,6 @@ for i in range(numOfCells):
 <code>
     localCell.inicializar()     
 </code>
- 
+ <h4>Facade</h4>
+<img src="facade.png" alt="Aplicacion Singleton">
 

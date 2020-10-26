@@ -29,14 +29,17 @@
     en el tablero de juego con el fin de que todos tengan caracteristicas similares y por su puesto actuen con las funcionalidades
     comunes  
 </p>
-```python
-def spawn_cells(self, cell,numOfCells):
+<code>
+   def spawn_cells(self, cell,numOfCells):
 localCell = cell
 localCell.inicializar()
 for i in range(numOfCells):
     self.cell_list.append(localCell)
     localCell = copy.deepcopy(localCell)
-    localCell.inicializar()
+    localCell.inicializar()     
+</code>
+```python
+
 ```
         
 

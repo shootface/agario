@@ -58,4 +58,6 @@ for i in range(numOfCells):
 </code>
  <h4>Facade</h4>
 <img src="facade.png" alt="Aplicacion Singleton">
-
+<p>
+  Para la implementacion de el patron fachada partimos entonces de la situación que este desarrollo se encuentra separados por componentes especializados, que a su vez necesitan un orquestador que los llame y haga uso de ellos, tanto de sus atributos como de sus funcionalidades , en este caso la clase game, se encarga de hacer el llamado y uso de estas clases , instanciando dentro de sus métodos las clases necesarias , además de ello se hace una llama a game desde init.py que al final es lo unico que se llama para hacer uso del conjunto de funcionalidades del programa
+</p>

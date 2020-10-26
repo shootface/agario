@@ -31,6 +31,9 @@
 </p>
 <code>
    def spawn_cells(self, cell,numOfCells):
+</code>
+</br>
+<code>
 localCell = cell
 localCell.inicializar()
 for i in range(numOfCells):
@@ -38,8 +41,5 @@ for i in range(numOfCells):
     localCell = copy.deepcopy(localCell)
     localCell.inicializar()     
 </code>
-```python
-
-```
-        
+ 
 

@@ -35,7 +35,13 @@
 </br>
 <code>
 localCell = cell
+</code>
+</br>
+<code>
 localCell.inicializar()
+</code>
+</br>
+<code>
 for i in range(numOfCells):
     self.cell_list.append(localCell)
     localCell = copy.deepcopy(localCell)
